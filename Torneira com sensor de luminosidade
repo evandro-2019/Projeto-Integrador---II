@@ -1,0 +1,24 @@
+#include <Servo.h>
+Servo s; // Variável Servo
+ void setup()
+{
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  Serial.begin(9600);
+  s.attach(4);
+  s.write(0); // Inicia motor posição zero
+}
+
+void loop()
+{
+  int leitura = analogRead(A0);
+  if(leitura>400){
+  	digitalWrite(3, HIGH);
+    digitalWrite(2, LOW);
+  	s.write(90); // Inicia motor posição zero
+  }else {
+  	digitalWrite(2, HIGH);
+    digitalWrite(3, LOW);
+  	s.write(0); // Inicia motor posição zero
+  }
+}
